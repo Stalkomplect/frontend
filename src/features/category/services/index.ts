@@ -1,0 +1,1 @@
+export { getCategoryService } from './get';

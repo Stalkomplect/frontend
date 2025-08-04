@@ -1,0 +1,1 @@
+export type { CategoryCardContent } from './_base'

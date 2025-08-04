@@ -1,0 +1,37 @@
+.search {
+    &__content {
+        &__place {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            & input {
+                max-width: 90%;
+            }
+            &__icon {
+                border-radius: 5px;
+                width: 35px;
+                height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                & img {
+                    filter: brightness(0) invert(100%);
+                    width: 32px;
+                }
+            }
+        }
+    }
+}
+.apply {
+    background-color: var(--primary);
+}
+
+.close {
+    background-color: rgb(156, 156, 156);
+}
+@media screen and (max-width: 550px) {
+    .search__content__place input {
+        width: 80%;
+    }
+}

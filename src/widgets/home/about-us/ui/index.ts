@@ -1,0 +1,1 @@
+export { AboutUsPlace } from './place'

@@ -1,0 +1,25 @@
+.place {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    &__link {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 5px;
+        background-color: var(--primary);
+        color: var(--background);
+        font-weight: 600;
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        transition: 0.2s linear;
+        &:hover {
+            background-color: var(--primary-hover);
+        }
+    }
+    @media screen and (max-width: 500px) {
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+}
