@@ -1,0 +1,1 @@
+export { getEvidenceApi } from './get';

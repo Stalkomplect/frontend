@@ -1,10 +1,7 @@
 import { Product } from '@/entities/product/types';
-import { getCategoryService } from '@/features/category/services';
 import { apiInstance } from '@/shared/api/_base';
 
 const BASE_URL = 'products/';
-
-const { getCategoryIdByUrl } = getCategoryService;
 
 const getAll = async (): Promise<Product[] | []> => {
     return await apiInstance.get(BASE_URL + 'get-all');

@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
+    &__thumbnail {
+        &__img {
+            max-width: 120px;
+            cursor: pointer;
+        }
+    }
+}
