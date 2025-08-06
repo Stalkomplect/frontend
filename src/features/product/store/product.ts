@@ -1,11 +1,8 @@
 import { Product } from '@/entities/product/types';
 import { productApiGet } from '../api';
 import { create } from 'zustand';
-import { getCategoryService } from '@/features/category/services';
 
 const { getAll, getByCategoryId } = productApiGet;
-
-const { getCategoryIdByUrl } = getCategoryService;
 
 interface ProductStore {
     products: Product[] | null;

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { SearchBar } from '@/features/search';
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetHeader,
     SheetTitle,
@@ -23,11 +24,13 @@ export const Navigation: FC = () => {
             {/* // desktop */}
             <header className={`${styles.stable} ${styles.navigation}`}>
                 <nav className={`container-xxl ${styles.navigation__list}`}>
-                    <img
-                        className={styles.navigation__list__logo}
-                        src={logo}
-                        alt='logo'
-                    />
+                    <NavLink to={'/'}>
+                        <img
+                            className={styles.navigation__list__logo}
+                            src={logo}
+                            alt='logo'
+                        />
+                    </NavLink>
                     <ul>
                         {Links.map((link) => (
                             <li key={link.id}>
@@ -77,15 +80,16 @@ export const Navigation: FC = () => {
                             >
                                 <img src={logo} alt='logo' />
                                 {Links.map((link) => (
-                                    <NavLink
-                                        key={link.id}
-                                        to={`/${link.link}`}
-                                        className={
-                                            styles.mobile_navigation__links__body__links__link
-                                        }
-                                    >
-                                        {link.name}
-                                    </NavLink>
+                                    <SheetClose asChild key={link.id}>
+                                        <NavLink
+                                            to={`/${link.link}`}
+                                            className={
+                                                styles.mobile_navigation__links__body__links__link
+                                            }
+                                        >
+                                            {link.name}
+                                        </NavLink>
+                                    </SheetClose>
                                 ))}
                                 <CallBack />
                             </ul>
