@@ -1,28 +1,52 @@
 import { FC } from 'react';
-import { ProductCardComponent } from '../../types';
+import { ProductProp } from '../../types';
 import { Link } from 'react-router-dom';
+import { useProductListContext } from '@/features/product/context/product-list';
 import styles from './styles.module.scss';
 
 const noPhoto =
     'https://static.vecteezy.com/system/resources/previews/019/787/070/non_2x/no-photos-and-no-phones-forbidden-sign-on-transparent-background-free-png.png';
 
-export const ProductCard: FC<ProductCardComponent> = ({ product }) => (
-    <Link to={`/catalog/product/${product.id}`} className={styles.card}>
-        <section className={styles.card__header}>
-            <img
-                className={styles.card__header__img}
-                src={
-                    product.productMedias[0]
-                        ? product.productMedias[0].link
-                        : noPhoto
-                }
-            />
-        </section>
-        <section className={styles.card__info}>
-            <h2>{product.name}</h2>
-            <div className={styles.card__info__additional}>
-                <h3>{product.number}</h3>
-            </div>
-        </section>
-    </Link>
-);
+export const ProductCard: FC<ProductProp> = ({ product }) => {
+    const { isInCart, changeItemState } = useProductListContext();
+
+    return (
+        <div className={styles.card}>
+            <section className={styles.card__header}>
+                <img
+                    className={styles.card__header__img}
+                    src={
+                        product.productMedias[0]
+                            ? product.productMedias[0].link
+                            : noPhoto
+                    }
+                />
+                <div onClick={() => changeItemState(product)}>
+                    <svg
+                        className={`${styles.card__header__svg} ${
+                            isInCart(product.id) ? styles.inCart : ''
+                        }`}
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='40'
+                        height='40'
+                        viewBox='0 0 24 24'
+                    >
+                        <g stroke='#ffffff' width={2}>
+                            <path d='M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z' />
+                            <path d='m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2' />
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <Link
+                to={`/catalog/product/${product.id}`}
+                className={styles.card__info}
+            >
+                <h2>{product.name}</h2>
+                <div className={styles.card__info__additional}>
+                    <h3>{product.number}</h3>
+                </div>
+            </Link>
+        </div>
+    );
+};

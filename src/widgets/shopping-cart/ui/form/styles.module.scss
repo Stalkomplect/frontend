@@ -1,0 +1,39 @@
+.form {
+    max-width: 330px;
+    padding: 20px 40px;
+    background-color: var(--card);
+    border-radius: 10px;
+    & input {
+        width: 240px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    & textarea {
+        margin-bottom: 20px;
+        max-height: 200px;
+        position: relative;
+        padding-top: 10px;
+    }
+    & h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    & label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 17px;
+    }
+    &__button {
+        background-color: var(--primary);
+        font-weight: 600;
+        font-size: 18px;
+        color: var(--background);
+        width: 100%;
+        transition: 0.2s linear;
+        &:hover {
+            background-color: var(--primary-hover);
+        }
+    }
+}

@@ -4,6 +4,7 @@ export interface Product {
     number: string;
     price: number;
     categoryId: string;
+    isInCart?: boolean;
     productMedias: ProductMedia[];
 }
 
@@ -12,6 +13,3 @@ export interface ProductMedia {
     link: string;
 }
 
-export interface ProductCardComponent {
-    product: Product;
-}
