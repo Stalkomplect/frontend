@@ -1,31 +1,29 @@
-import { FC, useEffect } from 'react';
-import { useProductStore } from '../../store';
+import { FC } from 'react';
 import { ProductCard } from '@/entities/product';
-import { getCategoryService } from '@/features/category/services';
+import { ProductDataProvider, ProductListProvider } from '../../context';
+import { useProductDataContext } from '../../context/product-context';
 import styles from './styles.module.scss';
 
 type List = {
     url?: string | undefined;
 };
 
-const { getCategoryIdByUrl } = getCategoryService;
-
 export const ProductList: FC<List> = ({ url }) => {
-    const { get, getByCategory, products, error } = useProductStore();
+    return (
+        <ProductDataProvider url={url}>
+            <ProductListProvider>
+                <ProductListContext />
+            </ProductListProvider>
+        </ProductDataProvider>
+    );
+};
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (url !== undefined) {
-                const categoryId = getCategoryIdByUrl(url);
-                await getByCategory(categoryId);
-            } else await get();
-        };
-        fetchData();
-    }, [get, getByCategory, url]);
+const ProductListContext: FC = () => {
+    const products = useProductDataContext();
 
     return (
         <ul className={styles.list}>
-            {products?.map((product) => (
+            {products?.products?.map((product) => (
                 <li key={product.id}>
                     <ProductCard product={product} />
                 </li>

@@ -1,5 +1,1 @@
-export interface CallBackModel {
-    name:string;
-    description:string;
-    phone:string;
-}
+export { type CallBackModel } from './_base';

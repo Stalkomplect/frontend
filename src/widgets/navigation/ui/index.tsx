@@ -53,7 +53,13 @@ export const Navigation: FC = () => {
                 </nav>
             </header>
             <header className={styles.mobile_navigation}>
-                <h1>LOGO</h1>
+                <NavLink to={'/'}>
+                    <img
+                        className={styles.navigation__list__logo}
+                        src={logo}
+                        alt='logo'
+                    />
+                </NavLink>
                 <ul className={styles.mobile_navigation__links}>
                     <NavLink to={'/shopping-cart'}>
                         <img src={cart} alt='cart' />
