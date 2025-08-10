@@ -1,0 +1,1 @@
+export { CategoryPlace } from './ui'

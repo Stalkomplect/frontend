@@ -1,0 +1,36 @@
+.place {
+    flex-direction: column;
+    & h1 {
+        font-size: 50px;
+    }
+    &__cards {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 35px;
+        position: relative;
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+            & > * {
+                flex: 1 1 100%;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        padding: 0 20px;
+        flex-direction: column;
+    }
+}
+
+.background {
+    position: absolute;
+    z-index: -2;
+    opacity: 0.1;
+    top: -450px;
+    right: 0;
+    height: 1100px;
+}
+
+.place__cards > * {
+    flex: 0 0 calc(50% - 17.5px);
+}

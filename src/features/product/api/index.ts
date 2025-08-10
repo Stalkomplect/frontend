@@ -1,0 +1,1 @@
+export { productApiGet } from './get';

@@ -1,0 +1,27 @@
+.card {
+    background-color: var(--card);
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary);
+    & h1 {
+        font-size: 35px;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__info {
+        user-select: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: var(--foreground--white);
+        transition: 0.2s linear;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--foreground--primary);
+            color: var(--background);
+        }
+        & p {
+            font-size: 19px;
+        }
+    }
+}

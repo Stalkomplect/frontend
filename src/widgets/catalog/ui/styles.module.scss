@@ -1,0 +1,15 @@
+.place {
+    padding-top: 80px;
+    flex-direction: column;
+    width: 100%;
+    &__header {
+        font-size: 50px;
+    }
+    &__catalog {
+        margin-top: 30px;
+        width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+        padding-top: 60px;
+    }
+}
