@@ -9,6 +9,21 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
+        errorElement: (
+            <section
+                style={{
+                    width: '100%',
+                    height: '100vh',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <h1 style={{ fontSize: '2rem' }}>Страницы не существует!</h1>
+                <a href='/'>На главную</a>
+            </section>
+        ),
         children: [
             {
                 path: '/',

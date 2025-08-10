@@ -137,3 +137,8 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+*.tar
+.ssl/
+*.crt
+conf.prod.d/

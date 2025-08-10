@@ -1,0 +1,12 @@
+services:
+    frontend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./nginx/conf.prod.d/:/etc/nginx/conf.d/
+            - ./.ssl/ca.crt:/etc/ssl/ca.crt
+            - ./.ssl/private/:/etc/.ssl/private/
+        ports:
+            - 80:80
+            - 443:443
