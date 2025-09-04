@@ -1,0 +1,15 @@
+.svg {
+	transition: 0.2s linear;
+	& g {
+		transition: 0.2s linear;
+		fill: none;
+	}
+
+	&.inCart g {
+		transition: 0.2s linear;
+		fill: white;
+		&:hover {
+			fill: rgb(244, 41, 41);
+		}
+	}
+}
